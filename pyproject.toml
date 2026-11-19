@@ -125,6 +125,7 @@ cosyvoice = [
     "scipy>=1.15.1",
     "x-transformers>=2.25.5",
 ]
+phone = ["scipy>=1.15.1"]
 
 [project.scripts]
 quick-convert = "main:main"

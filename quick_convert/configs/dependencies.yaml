@@ -48,29 +48,42 @@ extras:
     probes: [whisper]
   yaapt:
     probes: [amfm_decompy]
+  phone:
+    probes: [scipy]
 
 targets:
-  quick_convert.components.encoders.speaker.CosyVoiceCAMPPlusSpeakerEncoder: [campplus]
+  quick_convert.components.encoders.speaker.CosyVoiceCAMPPlusSpeakerEncoder:
+    [campplus]
   quick_convert.data.resources.SameSpeakerReferenceProvider: [manifests]
-  quick_convert.components.sequence.upsample_conformer.UpsampleConformerEncoder: [cosyvoice]
+  quick_convert.components.sequence.upsample_conformer.UpsampleConformerEncoder:
+    [cosyvoice]
   # Saved-system targets are inspected by the planner; loaders themselves need only base dependencies.
   quick_convert.inference.load_inference_system: []
   quick_convert.inference.load_system_from_run: []
   quick_convert.inference.load_inference_artifact: []
-  quick_convert.components.features.opensmile.OpenSmileProsodyExtractor: [opensmile]
-  quick_convert.components.generators.acoustic.CosyVoiceSpectrogramGenerator: [cosyvoice]
-  quick_convert.components.resources.tokenizer.TokenizerFeatureExtractor: [sentencepiece]
-  quick_convert.components.encoders.speaker.ESPnetSpeakerEncoder: [espnet-wavlm-joint]
+  quick_convert.components.features.opensmile.OpenSmileProsodyExtractor:
+    [opensmile]
+  quick_convert.components.generators.acoustic.CosyVoiceSpectrogramGenerator:
+    [cosyvoice]
+  quick_convert.components.resources.tokenizer.TokenizerFeatureExtractor:
+    [sentencepiece]
+  quick_convert.components.encoders.speaker.ESPnetSpeakerEncoder:
+    [espnet-wavlm-joint]
   quick_convert.components.encoders.speaker.PyannoteWeSpeakerEncoder: [pyannote]
-  quick_convert.components.encoders.speaker.SpeechBrainECAPASpeakerEncoder: [speechbrain]
+  quick_convert.components.encoders.speaker.SpeechBrainECAPASpeakerEncoder:
+    [speechbrain]
   quick_convert.components.features.f0.yaapt.YAAPTF0Extractor: [yaapt]
   quick_convert.components.encoders.content.DACContentEncoder: [dac]
   quick_convert.components.encoders.content.DACQuantizedContentEncoder: [dac]
-  quick_convert.components.encoders.content.quantized.DACQuantizedContentEncoder: [dac]
+  quick_convert.components.encoders.content.quantized.DACQuantizedContentEncoder:
+    [dac]
   quick_convert.components.encoders.content.MimiQuantizedContentEncoder: [mimi]
-  quick_convert.components.encoders.content.quantized.MimiQuantizedContentEncoder: [mimi]
-  quick_convert.components.encoders.content.SpeechTokenizerQuantizedContentEncoder: [speechtokenizer]
-  quick_convert.components.encoders.content.quantized.SpeechTokenizerQuantizedContentEncoder: [speechtokenizer]
+  quick_convert.components.encoders.content.quantized.MimiQuantizedContentEncoder:
+    [mimi]
+  quick_convert.components.encoders.content.SpeechTokenizerQuantizedContentEncoder:
+    [speechtokenizer]
+  quick_convert.components.encoders.content.quantized.SpeechTokenizerQuantizedContentEncoder:
+    [speechtokenizer]
   # The nested saved system selects the content backend's requirements.
   quick_convert.components.encoders.content.VQASRContentEncoder: []
   quick_convert.components.encoders.content.vq_asr.VQASRContentEncoder: []
@@ -78,8 +91,10 @@ targets:
   quick_convert.components.encoders.content.PASEContentEncoder: [pase]
   quick_convert.components.encoders.content.SPEARContentEncoder: [spear]
   quick_convert.components.encoders.content.ProsodyEncoder: [mpm]
-  quick_convert.components.encoders.content.S3TokenizerContentEncoder: [s3tokenizer]
-  quick_convert.components.encoders.content.W2VBertContentEncoder: [transformers]
+  quick_convert.components.encoders.content.S3TokenizerContentEncoder:
+    [s3tokenizer]
+  quick_convert.components.encoders.content.W2VBertContentEncoder:
+    [transformers]
   quick_convert.components.encoders.content.VoiceFMContentEncoder: [voicefm]
   quick_convert.components.encoders.content.WavLMContentEncoder: [transformers]
   quick_convert.pipelines.evaluation.metrics.JiwerWER: [wer]
@@ -87,9 +102,14 @@ targets:
   quick_convert.systems.ser.odyssey_ser.OdysseySER: [transformers]
   quick_convert.systems.ser.speechbrain_ser.SpeechBrainSER: [speechbrain-ser]
   quick_convert.systems.conversion.PSST1ConversionSystem: [speechbrain, yaapt]
-  quick_convert.training.lightning.modules.vq_asr.VQASRTrainingModule: [asr, training]
-  quick_convert.training.lightning.modules.ssl_reconstruction.SSLReconstructionTrainingModule: [training]
-  quick_convert.training.lightning.modules.speaker_generator.SpeakerGeneratorTrainingModule: [training]
+  quick_convert.training.lightning.modules.vq_asr.VQASRTrainingModule:
+    [asr, training]
+  quick_convert.training.lightning.modules.ssl_reconstruction.SSLReconstructionTrainingModule:
+    [training]
+  quick_convert.training.lightning.modules.speaker_generator.SpeakerGeneratorTrainingModule:
+    [training]
   quick_convert.training.lightning.trainer.LightningTrainer: [training]
   quick_convert.training.tokenizer.TokenizerTrainer: [sentencepiece]
-  quick_convert.training.tokenizers.sentencepiece.SentencePieceBPETrainer: [sentencepiece]
+  quick_convert.training.tokenizers.sentencepiece.SentencePieceBPETrainer:
+    [sentencepiece]
+  quick_convert.components.transforms.phone_style.PhoneStyleConverter: [phone]

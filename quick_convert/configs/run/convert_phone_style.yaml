@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - /global: default
+  - _self_
+
+seed: 2026
+pipeline:
+  _target_: quick_convert.pipelines.phone_style.PhoneStylePipeline
+  input_path: ???
+  out_dir: ${out_root}/phone_style
+  converter:
+    _target_: quick_convert.components.transforms.phone_style.PhoneStyleConverter
+    severity: null  # null: deterministic per-file variation; 0..1: fixed severity
+    seed: ${seed}
